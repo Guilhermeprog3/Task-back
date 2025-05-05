@@ -4,7 +4,7 @@ import { compose } from '@adonisjs/core/helpers'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
-import { type HasMany } from '@adonisjs/lucid/types/relations'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Task from './task.js'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
@@ -28,8 +28,10 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare token: string | null
 
-  @hasMany(() => Task)
-  declare task: HasMany<typeof Task>
+  @hasMany(() => Task, {
+    foreignKey: 'userId',
+  })
+  declare tasks: HasMany<typeof Task>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

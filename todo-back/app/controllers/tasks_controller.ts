@@ -1,4 +1,3 @@
-import Object from '#models/task'
 import { createTaskValidator } from '#validators/task'
 import type { HttpContext } from '@adonisjs/core/http'
 import { updateTaskValidator } from '#validators/task'
@@ -6,17 +5,17 @@ import Task from '#models/task'
 export default class ObjectsController {
   async index({ auth }: HttpContext) {
     const user = auth.user!
-    await user.load('task', (query) => {
+    await user.load('tasks', (query) => {
       query.orderBy('created_at', 'desc')
     })
-    return user.task
+    return user.tasks
   }
 
   async store({ request, auth, response }: HttpContext) {
     try {
       const { title, description } = await request.validateUsing(createTaskValidator)
       const user = auth.user!
-      await user.related('task').create({
+      await user.related('tasks').create({
         title,
         description,
       })

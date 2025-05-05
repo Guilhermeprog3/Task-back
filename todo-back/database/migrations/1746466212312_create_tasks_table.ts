@@ -8,7 +8,8 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('title').notNullable()
       table.string('description').notNullable()
-      table.boolean('completed').notNullable().defaultTo('false')
+      table.boolean('completed').notNullable().defaultTo(false)
+      table.boolean('favorited').notNullable().defaultTo(false)
       table
         .integer('user_id')
         .notNullable()
@@ -17,8 +18,8 @@ export default class extends BaseSchema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.timestamp('created_at').notNullable()
+      table.timestamp('updated_at').nullable()
     })
   }
 

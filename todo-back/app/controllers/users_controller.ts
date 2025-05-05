@@ -4,7 +4,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class UsersController {
   async index({}: HttpContext) {
-    const users = await User.query().preload('task')
+    const users = await User.query().preload('tasks')
     return users
   }
 
@@ -16,7 +16,7 @@ export default class UsersController {
 
   async show({ params }: HttpContext) {
     const user = await User.findByOrFail('id', params.id)
-    await user.load('task')
+    await user.load('tasks')
     return user
   }
 

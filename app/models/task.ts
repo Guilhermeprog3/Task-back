@@ -16,8 +16,6 @@ export default class Task extends BaseModel {
   @column()
   declare completed: boolean
 
-  @column()
-  declare favorited: boolean
 
   @column()
   declare userId: number

@@ -9,7 +9,6 @@ export default class extends BaseSchema {
       table.string('title').notNullable()
       table.string('description').notNullable()
       table.boolean('completed').notNullable().defaultTo(false)
-      table.boolean('favorited').notNullable().defaultTo(false)
       table
         .integer('user_id')
         .notNullable()

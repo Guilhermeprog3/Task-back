@@ -13,15 +13,13 @@ export default class ObjectsController {
 
   async store({ request, auth, response }: HttpContext) {
     try {
-      const { title, description } = await request.validateUsing(createTaskValidator)
+      const { title } = await request.validateUsing(createTaskValidator)
       const user = auth.user!
       await user.related('tasks').create({
         title,
-        description,
       })
       return {
         title,
-        description,
       }
     } catch (error) {
       response.status(400).json({ error: 'erro' })
@@ -39,8 +37,8 @@ export default class ObjectsController {
   async update({ request, params, response }: HttpContext) {
     try {
       const task = await Task.findByOrFail('id', params.id)
-      const { title, description } = await request.validateUsing(updateTaskValidator)
-      task.merge({ title, description })
+      const { title,} = await request.validateUsing(updateTaskValidator)
+      task.merge({ title,})
       await task.save()
       return task
     } catch (error) {

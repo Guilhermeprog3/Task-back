@@ -11,9 +11,6 @@ export default class Task extends BaseModel {
   declare title: string
 
   @column()
-  declare description: string
-
-  @column()
   declare completed: boolean
 
 

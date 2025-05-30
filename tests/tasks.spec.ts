@@ -3,11 +3,11 @@ import { test } from '@japa/runner'
 
 test.group('Tarefas (HTTP)', (group) => {
   group.setup(async () => {
-    // await Database.truncate('tasks')
+    
   })
 
   group.teardown(async () => {
-    // await Database.truncate('tasks')
+    
   })
 
   test('POST /tasks deve criar uma nova tarefa', async ({ client, assert }) => {

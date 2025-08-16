@@ -123,4 +123,4 @@ A API fornece endpoints para gerenciar usuários, tarefas e autenticação basea
 
 👤 **Desenvolvedor:** Guilherme Silva Rios  
 🌐 [Portfólio](https://guilhermeriosdev.vercel.app)  
-💻 [GitHub](https://github.com/GuilhermeRiosDev)  
+💻 [GitHub](https://github.com/Guilhermeprog3)  

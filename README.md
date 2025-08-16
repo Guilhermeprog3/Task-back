@@ -78,7 +78,7 @@ A API fornece endpoints para gerenciar usuários, tarefas e autenticação basea
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/task-back.git
+   git clone https://github.com/Guilhermeprog3/Task-back.git
    cd task-back
    ```
 
